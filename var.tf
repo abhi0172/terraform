@@ -15,14 +15,14 @@ variable "subnet2_cidr" {
   default = "10.0.3.0/24"
 }
 # Defining CIDR Block for 3rd Subnet
-variable "subnet2_cidr" {
+variable "subnet3_cidr" {
   default = "10.0.4.0/24"
 }
 # Defining CIDR Block for 3rd Subnet
-variable "subnet2_cidr" {
+variable "subnet4_cidr" {
   default = "10.0.5.0/24"
 }
 # Defining CIDR Block for 3rd Subnet
-variable "subnet2_cidr" {
+variable "subnet5_cidr" {
   default = "10.0.6.0/24" 
 }
