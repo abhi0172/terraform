@@ -4,7 +4,7 @@ resource "aws_lb" "external-alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.demosg.id]
-  subnets            = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-1.id]
+  subnets            = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id]
 }
 resource "aws_lb_target_group" "target-elb" {
   name     = "ALB-TG"
@@ -36,4 +36,9 @@ default_action {
   type             = "forward"
   target_group_arn = aws_lb.external-alb.arn
 }
+}
+# Getting the DNS of load balancer
+output "lb_dns_name" {
+  description = "The DNS name of the load balancer"
+  value       = "${aws_lb.external-alb.dns_name}"
 }
