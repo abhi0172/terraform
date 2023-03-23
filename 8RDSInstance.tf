@@ -13,7 +13,7 @@ resource "aws_db_instance" "default" {
   engine_version         = "8.0.20"
   instance_class         = "db.t2.micro"
   multi_az               = true
-  name                   = "db_name"
+  db_name                = "mydb"
   username               = "username"
   password               = "password"
   skip_final_snapshot    = true
