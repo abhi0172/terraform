@@ -13,15 +13,15 @@ resource "aws_lb_target_group" "target-elb" {
   vpc_id   = aws_vpc.vpc_1.id
 }
 resource "aws_lb_target_group_attachment" "attachment" {
-  target_group_arn = aws_lb_target_group.external-alb.arn
+  target_group_arn = aws_lb.external-alb.arn
   target_id        = aws_instance.demoinstance.id
   port             = 80
 depends_on = [
   aws_instance.demoinstance,
 ]
 }
-resource "aws_lb_target_group_attachment" "attachment1" {
-  target_group_arn = aws_lb_target_group.external-alb.arn
+resource "aws_lb_target_group_attachment" "attachment-1" {
+  target_group_arn = aws_lb.external-alb.arn
   target_id        = aws_instance.demoinstance1.id
   port             = 80
 depends_on = [
@@ -34,6 +34,6 @@ resource "aws_lb_listener" "external-elb" {
   protocol          = "HTTP"
 default_action {
   type             = "forward"
-  target_group_arn = aws_lb_target_group.external-alb.arn
+  target_group_arn = aws_lb.external-alb.arn
 }
 }
